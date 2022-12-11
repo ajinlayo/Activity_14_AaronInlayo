@@ -1,0 +1,39 @@
+- name: Install nova api
+  apt:
+    name: nova-api
+    state: latest
+
+- name: Install nova conductor
+  apt:
+    name: nova-conductor
+    state: latest
+
+- name: Install nova novncproxy
+  apt:
+    name: nova-novncproxy
+    state: latest
+
+- name: Install nova scheduler
+  apt:
+    name: nova-scheduler
+    state: latest
+
+- name: Restart nova-api
+  ansible.builtin.service:
+   name: nova-api
+   state: restarted
+
+- name: Restart nova-conductor
+  ansible.builtin.service:
+   name: nova-conductor
+   state: restarted
+
+- name: Restart nova-novncproxy
+  ansible.builtin.service:
+   name: nova-novncproxy
+   state: restarted
+
+- name: Restart nova-scheduler
+  ansible.builtin.service:
+   name: nova-scheduler
+   state: restarted
